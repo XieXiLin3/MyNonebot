@@ -7,7 +7,7 @@ get_ginfo=on_command("get_group_info", aliases={"get_ginfo", "getgroupinfo", "ge
 @get_ginfo.handle()
 async def ggi_handle(bot: Bot, event: MessageEvent):
     info=await bot.get_group_list()
-    list=""
+    list=[]
     for i in info:
-        list+=str(i['group_id']) + " "
-    await get_ginfo.finish(MessageSegment.reply(event.message_id) + MessageSegment.text(list))
+        list.append(i['group_id'])
+    await get_ginfo.finish(MessageSegment.reply(event.message_id) + MessageSegment.text(",".join(list)))
