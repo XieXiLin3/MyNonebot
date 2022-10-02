@@ -10,4 +10,4 @@ async def ggi_handle(bot: Bot, event: MessageEvent):
     list=[]
     for i in info:
         list.append(str(i['group_id']))
-    await get_ginfo.finish(MessageSegment.reply(event.message_id) + MessageSegment.text(",".join(list)))
+    await get_ginfo.finish(MessageSegment.reply(event.message_id) + MessageSegment.text(", ".join(list)))
